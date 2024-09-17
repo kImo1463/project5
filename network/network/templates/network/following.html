@@ -1,0 +1,7 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+<h2>Posts from Users You Follow</h2>
+{% include "network/posts.html" with posts=page_obj %}
+{% include "network/pagination_controls.html" %}
+{% endblock %}

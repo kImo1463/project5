@@ -1,0 +1,25 @@
+{% for post in posts %}
+<div class="post" id="post-{{ post.id }}">
+    <p>
+        <a href="{% url 'profile' post.user.id %}">{{ post.user.username }}</a>:
+        <span class="post-content">{{ post.content }}</span>
+        {% if user == post.user %}
+            <button class="edit-button" data-post-id="{{ post.id }}">Edit</button>
+        {% endif %}
+    </p>
+    <p><small>{{ post.timestamp }}</small></p>
+    <p>
+        <span id="likes-count-{{ post.id }}">{{ post.likes.count }}</span> Likes
+        {% if user.is_authenticated %}
+            <button class="like-button" data-post-id="{{ post.id }}">
+                {% if user in post.likes.all %}
+                    Unlike
+                {% else %}
+                    Like
+                {% endif %}
+            </button>
+        {% endif %}
+    </p>
+    <hr>
+</div>
+{% endfor %}

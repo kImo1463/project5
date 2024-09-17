@@ -1,0 +1,14 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+{% if user.is_authenticated %}
+    <form action="{% url 'new_post' %}" method="post">
+        {% csrf_token %}
+        <textarea class="form-control" name="content" placeholder="What's on your mind?" rows="3"></textarea>
+        <button type="submit" class="btn btn-primary mt-2">Post</button>
+    </form>
+{% endif %}
+<h2 class="mt-4">Latest Posts</h2>
+{% include "network/posts.html" with posts=page_obj %}
+{% include "network/pagination_controls.html" %}
+{% endblock %}
