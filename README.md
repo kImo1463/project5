@@ -1,1 +1,1 @@
-a social network website that mimics the functionality of Twitter(X)
+This project is a social network website that mimics the functionality of Twitter (X). Users can post updates, interact with other users through likes and retweets, and follow/unfollow others to curate their feeds.
